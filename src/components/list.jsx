@@ -1,12 +1,19 @@
-import React from "react";
+function list({ handlClick, category }) {
+  const listOfType = ["vegetable", "drink", "fruit", "grocery"];
 
-function list() {
-  const links = ["Fruits", "Vegetables", "Fresh product", "Drink"];
   return (
     <div className="mt-4">
       <ul>
-        {links.map((link) => {
-          return <li key={link}>{link}</li>;
+        {listOfType.map((link) => {
+          return (
+            <li
+              key={link}
+              className={category == link ? "active" : ""}
+              onClick={() => handlClick(link)}
+            >
+              {link}
+            </li>
+          );
         })}
       </ul>
     </div>
