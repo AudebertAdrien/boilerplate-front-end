@@ -1,5 +1,9 @@
 {
   "private": true,
+  "name": "e-commerce",
+  "description": "A description of my new project",
+  "author": "Adrien Audebert",
+  "license": "MIT",
   "scripts": {
     "start": "REACT_APP_DEVELOPMENT=development webpack serve",
     "build": "REACT_APP_PRODUCTION=production webpack"
@@ -8,7 +12,7 @@
     "@babel/core": "^7.13.10",
     "@babel/plugin-transform-runtime": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
-    "@babel/preset-react": "^7.12.13",
+    "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.1.1",

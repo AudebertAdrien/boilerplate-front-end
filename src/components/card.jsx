@@ -1,3 +1,5 @@
+import Modal from "../components/modal";
+
 function card({ list }) {
   return (
     <div className="d-flex flex-wrap justify-content-center">
@@ -8,9 +10,10 @@ function card({ list }) {
             <div className="card-body">
               <h5 className="card-title">{item.name}</h5>
               <p className="card-text">{item.type}</p>
-              <a href={"#"} className="btn btn-primary">
+              <button className="btn btn-primary" data-toggle="modal" data-target={`#${item.name}`}>
                 Go somewhere
-              </a>
+              </button>
+              <Modal item={item}/>
             </div>
           </div>
         );

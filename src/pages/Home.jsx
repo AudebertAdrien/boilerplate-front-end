@@ -8,9 +8,9 @@ import List from "../components/list";
 
 function Home() {
   const [fullList, setFullList] = useState([]);
-  const [category, setCategory] = useState("vegetable");
-  const [isfiltering, setFiltering] = useState(false);
   const [filtered, setFiltered] = useState([]);
+  const [category, setCategory] = useState("vegetable");
+  const [isfiltering, setIsFiltering] = useState(false);
 
   // Set list and define active list
   function handlClick(i) {
@@ -19,6 +19,7 @@ function Home() {
 
   // Search bar filtering
   const filterResults = (input) => {
+    console.log("filterResults")
     let result = fullList.filter((item) => {
       const name = item.name.toLowerCase();
       const term = input.toLowerCase();
@@ -32,25 +33,25 @@ function Home() {
     const fetchData = async () => {
       const groceryDatas = await axios("http://localhost:3000/");
       let list = groceryDatas.data.list;
+
       if (!isfiltering) {
-        console.log("!isfiltering");
-        list = list.filter((i) => {
-          if (i.type == category) return i;
+        list = list.filter((item) => {
+          if (item.type == category) return item;
         });
         setFullList(list);
       } else {
-        console.log("fulllist");
         setFullList(list);
       }
     };
     fetchData();
     // toggle search bar
-  }, [category, filtered]);
+  }, [category, isfiltering]);
+
 
   return (
     <div className="d-flex flex-column justify-content-between">
       <div>
-        <Navbar filterResults={filterResults} setFiltering={setFiltering} />
+        <Navbar filterResults={filterResults} setIsFiltering={setIsFiltering} />
       </div>
       <div className="container-fluid">
         <div className="row">
@@ -60,7 +61,6 @@ function Home() {
           <div className="col">
             <Card
               list={isfiltering ? filtered : fullList}
-              category={category}
             />
           </div>
         </div>

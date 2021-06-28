@@ -1,4 +1,4 @@
-function navbar({ filterResults, setFiltering }) {
+function navbar({ filterResults, setIsFiltering }) {
   return (
     <nav className="navbar navbar-light ">
       <div className="container-fluid">
@@ -9,7 +9,7 @@ function navbar({ filterResults, setFiltering }) {
             type="search"
             aria-label="Search"
             onChange={(e) => {
-              setFiltering(e.target.value.length > 0);
+              setIsFiltering(e.target.value.length > 0);
               filterResults(e.target.value);
             }}
           />
