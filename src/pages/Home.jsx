@@ -5,6 +5,8 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Card from "../components/card";
 import List from "../components/list";
+import BoostrapModal from "../boostrap-components/Modal";
+import BoostrapPopover from "../boostrap-components/Popover";
 
 function Home() {
   const [fullList, setFullList] = useState([]);
@@ -19,7 +21,7 @@ function Home() {
 
   // Search bar filtering
   const filterResults = (input) => {
-    console.log("filterResults")
+    console.log("filterResults");
     let result = fullList.filter((item) => {
       const name = item.name.toLowerCase();
       const term = input.toLowerCase();
@@ -47,7 +49,6 @@ function Home() {
     // toggle search bar
   }, [category, isfiltering]);
 
-
   return (
     <div className="d-flex flex-column justify-content-between">
       <div>
@@ -57,11 +58,11 @@ function Home() {
         <div className="row">
           <div className="col-3">
             <List handlClick={handlClick} category={category} />
+            <BoostrapModal />
+            <BoostrapPopover />
           </div>
           <div className="col">
-            <Card
-              list={isfiltering ? filtered : fullList}
-            />
+            <Card list={isfiltering ? filtered : fullList} />
           </div>
         </div>
       </div>

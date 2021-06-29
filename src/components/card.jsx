@@ -1,4 +1,4 @@
-import Modal from "../components/modal";
+// import Modal from "../components/modal";
 
 function card({ list }) {
   return (
@@ -10,10 +10,10 @@ function card({ list }) {
             <div className="card-body">
               <h5 className="card-title">{item.name}</h5>
               <p className="card-text">{item.type}</p>
-              <button className="btn btn-primary" data-toggle="modal" data-target={`#${item.name}`}>
+              <button className="btn btn-primary" data-toggle="modal" /* data-target={`#${item.name}`} */>
                 Go somewhere
               </button>
-              <Modal item={item}/>
+              {/* <Modal item={item}/> */}
             </div>
           </div>
         );

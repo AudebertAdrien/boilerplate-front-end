@@ -1,4 +1,4 @@
-function modal({item}) {
+/* function modal({item}) {
     return (
         <div>
             <div className="modal fade" id={item.name} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -25,3 +25,4 @@ function modal({item}) {
 }
 
 export default modal
+ */

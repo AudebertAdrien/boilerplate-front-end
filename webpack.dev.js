@@ -1,8 +1,6 @@
 const webpack = require("webpack");
 
 module.exports = {
-  target: "web",
-
   mode: "development",
   devtool: "source-map",
   plugins: [
