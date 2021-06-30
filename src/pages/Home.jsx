@@ -5,14 +5,13 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Card from "../components/card";
 import List from "../components/list";
-import BoostrapModal from "../boostrap-components/Modal";
-import BoostrapPopover from "../boostrap-components/Popover";
 
 function Home() {
   const [fullList, setFullList] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [category, setCategory] = useState("vegetable");
   const [isfiltering, setIsFiltering] = useState(false);
+  const [count, setCount] = useState(1);
 
   // Set list and define active list
   function handlClick(i) {
@@ -46,23 +45,28 @@ function Home() {
       }
     };
     fetchData();
-    // toggle search bar
   }, [category, isfiltering]);
 
   return (
     <div className="d-flex flex-column justify-content-between">
       <div>
-        <Navbar filterResults={filterResults} setIsFiltering={setIsFiltering} />
+        <Navbar
+          filterResults={filterResults}
+          setIsFiltering={setIsFiltering}
+          count={count}
+        />
       </div>
       <div className="container-fluid">
         <div className="row">
           <div className="col-3">
             <List handlClick={handlClick} category={category} />
-            <BoostrapModal />
-            <BoostrapPopover />
           </div>
           <div className="col">
-            <Card list={isfiltering ? filtered : fullList} />
+            <Card
+              list={isfiltering ? filtered : fullList}
+              count={count}
+              setCount={setCount}
+            />
           </div>
         </div>
       </div>
