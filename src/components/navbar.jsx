@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+import { cartSelector } from "../store/cart.selectors";
+// import { incrementCart } from "../store/cart.actions";
+
 function navbar({ filterResults, setIsFiltering, count }) {
   const [linkIsActive, setLinkIsActive] = useState("");
+
+  const count2 = useSelector(cartSelector);
 
   const handleIsActive = (e) => {
     setLinkIsActive(e.target.id);
@@ -29,7 +35,7 @@ function navbar({ filterResults, setIsFiltering, count }) {
         </nav>
         <div className="cart">
           <i className="fa fa-shopping-cart"></i>
-          <span className="badge badge-success">{count}</span>
+          <span className="badge badge-success">{count2}</span>
         </div>
       </div>
 
