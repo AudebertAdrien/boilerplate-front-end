@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from "redux";
 
 import { cartReducer } from "./cart.reducer.js";
+// import { listReducer } from "./list.reducer.js";
 
-export default createStore(
-  combineReducers({
-    cart: cartReducer,
-  }),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const rootReducer = combineReducers({
+  cart: cartReducer,
+});
+
+export default createStore(rootReducer);

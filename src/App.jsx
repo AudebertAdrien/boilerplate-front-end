@@ -1,15 +1,11 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import RouterConfig from "./navigation/RouterConfig";
-import { Provider } from "react-redux";
-import store from "./store/index";
 
 function App() {
   return (
-    <Provider store={store}>
-      <Router>
-        <RouterConfig />
-      </Router>
-    </Provider>
+    <Router>
+      <RouterConfig />
+    </Router>
   );
 }
 

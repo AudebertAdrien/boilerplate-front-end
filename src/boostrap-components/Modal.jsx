@@ -5,15 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { cartSelector } from "../store/cart.selectors";
 import { incrementCart, decrementCart } from "../store/cart.actions";
 
-function BoostrapModal({ item, count, setCount }) {
+function BoostrapModal({ item }) {
   const [modal, setModal] = useState(null);
   const exampleModal = useRef();
 
   const [isClicked, setIsClicked] = useState(false);
 
   const dispatch = useDispatch();
-  const count2 = useSelector(cartSelector);
-  console.log(count2);
+  const count = useSelector(cartSelector);
 
   useEffect(() => {
     setModal(new Modal(exampleModal.current));
@@ -63,11 +62,11 @@ function BoostrapModal({ item, count, setCount }) {
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={() => (count2 > 1 ? dispatch(decrementCart(1)) : 1)}
+                onClick={() => (count > 1 ? dispatch(decrementCart(1)) : 1)}
               >
                 -
               </button>
-              <span className="btn btn-light qty">{count2}</span>
+              <span className="btn btn-light qty">{count}</span>
               <button
                 type="button"
                 className="btn btn-secondary"

@@ -5,10 +5,10 @@ import { useSelector } from "react-redux";
 import { cartSelector } from "../store/cart.selectors";
 // import { incrementCart } from "../store/cart.actions";
 
-function navbar({ filterResults, setIsFiltering, count }) {
+function navbar({ filterResults, setIsFiltering }) {
   const [linkIsActive, setLinkIsActive] = useState("");
 
-  const count2 = useSelector(cartSelector);
+  const count = useSelector(cartSelector);
 
   const handleIsActive = (e) => {
     setLinkIsActive(e.target.id);
@@ -35,7 +35,7 @@ function navbar({ filterResults, setIsFiltering, count }) {
         </nav>
         <div className="cart">
           <i className="fa fa-shopping-cart"></i>
-          <span className="badge badge-success">{count2}</span>
+          <span className="badge badge-success">{count}</span>
         </div>
       </div>
 
