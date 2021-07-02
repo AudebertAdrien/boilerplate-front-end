@@ -6,12 +6,17 @@ import Footer from "../components/footer";
 import Card from "../components/card";
 import List from "../components/list";
 
+import { useSelector } from "react-redux";
+import { getList } from "../store/list.selectors";
+
 function Home() {
   const [fullList, setFullList] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [category, setCategory] = useState("vegetable");
   const [isfiltering, setIsFiltering] = useState(false);
-  const [count, setCount] = useState(1);
+
+  /* const list = useSelector(getList);
+  console.log(list) */
 
   // Set list and define active list
   function handlClick(i) {
@@ -50,11 +55,7 @@ function Home() {
   return (
     <div className="d-flex flex-column justify-content-between">
       <div>
-        <Navbar
-          filterResults={filterResults}
-          setIsFiltering={setIsFiltering}
-          count={count}
-        />
+        <Navbar filterResults={filterResults} setIsFiltering={setIsFiltering} />
       </div>
       <div className="container-fluid">
         <div className="row">
@@ -62,11 +63,7 @@ function Home() {
             <List handlClick={handlClick} category={category} />
           </div>
           <div className="col">
-            <Card
-              list={isfiltering ? filtered : fullList}
-              count={count}
-              setCount={setCount}
-            />
+            <Card list={isfiltering ? filtered : fullList} />
           </div>
         </div>
       </div>

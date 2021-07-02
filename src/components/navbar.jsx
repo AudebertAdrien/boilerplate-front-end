@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { cartSelector } from "../store/cart.selectors";
-// import { incrementCart } from "../store/cart.actions";
 
 function navbar({ filterResults, setIsFiltering }) {
   const [linkIsActive, setLinkIsActive] = useState("");
