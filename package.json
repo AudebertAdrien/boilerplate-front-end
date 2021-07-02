@@ -4,6 +4,9 @@
   "description": "A description of my new project",
   "author": "Adrien Audebert",
   "license": "MIT",
+  "engines":{
+    "node": "16.4.0"
+  },
   "scripts": {
     "start": "REACT_APP_DEVELOPMENT=development webpack serve",
     "build": "REACT_APP_PRODUCTION=production webpack"
