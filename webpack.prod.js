@@ -7,8 +7,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
-  target: "browserslist",
-
   mode: "production",
   plugins: [
     new CleanWebpackPlugin(),
