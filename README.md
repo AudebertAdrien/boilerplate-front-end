@@ -1,19 +1,17 @@
-# Departments and Incidence Front end
+# e-commerce Front end
 
 ---
 
 - Production link  
-  https://data-gouv-client.herokuapp.com/
+  https://my-e-commerce-client.herokuapp.com/
 
 ## Description
-
-This project processes datas relative to Covid19. It takes and use a CSV file which lists some information about the numbers of population, positive case, date and the departments numbers. It calculates the incidence of new cases per day. The calculation is “(sum of positive case \* 100 000 inhabitants) / divided per sum of population tested.
 
 It is a MERN (mongoDB, Express, React, Node) in RESTfull API
 
 - Github link  
-  https://github.com/AudebertAdrien/data-gouv-client  
-  https://github.com/AudebertAdrien/data-gouv-server
+  https://github.com/AudebertAdrien/e-commerce-client
+  https://github.com/AudebertAdrien/e-commerce-server
 
 ### Heroku
 

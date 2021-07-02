@@ -21,7 +21,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       WEBPACK_BASE_URL: JSON.stringify(
-        "https://my-e-commerce-client.herokuapp.com/"
+        "https://my-e-commerce-server.herokuapp.com/"
       ),
     }),
   ],
