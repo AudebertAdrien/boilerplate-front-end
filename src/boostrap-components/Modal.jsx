@@ -6,13 +6,14 @@ import { cartSelector } from "../store/cart.selectors";
 import { incrementCart, decrementCart } from "../store/cart.actions";
 
 function BoostrapModal({ item }) {
-  const [modal, setModal] = useState(null);
-  const exampleModal = useRef();
-
   const [isClicked, setIsClicked] = useState(false);
 
   const dispatch = useDispatch();
   const count = useSelector(cartSelector);
+
+  // interactive bootstrap "modal" with js
+  const [modal, setModal] = useState(null);
+  const exampleModal = useRef();
 
   useEffect(() => {
     setModal(new Modal(exampleModal.current));

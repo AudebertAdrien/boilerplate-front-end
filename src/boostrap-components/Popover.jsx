@@ -8,6 +8,7 @@ function BoostrapPopover() {
   useEffect(() => {
     setPopover(new Popover(examplePopover.current));
   }, []);
+
   return (
     <div>
       <button

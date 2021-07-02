@@ -1,61 +1,35 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Card from "../components/card";
 import List from "../components/list";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getList } from "../store/list.selectors";
+import { fetchSortedList } from "../store/list.actions";
 
 function Home() {
-  const [fullList, setFullList] = useState([]);
-  const [filtered, setFiltered] = useState([]);
+  const dispatch = useDispatch();
+  const list = useSelector(getList);
   const [category, setCategory] = useState("vegetable");
-  const [isfiltering, setIsFiltering] = useState(false);
-
-  /* const list = useSelector(getList);
-  console.log(list) */
 
   // Set list and define active list
   function handlClick(i) {
     setCategory(i);
   }
 
-  // Search bar filtering
-  const filterResults = (input) => {
-    console.log("filterResults");
-    let result = fullList.filter((item) => {
-      const name = item.name.toLowerCase();
-      const term = input.toLowerCase();
-      return name.indexOf(term) > -1;
-    });
-    setFiltered(result);
-  };
-
   useEffect(() => {
-    // Get all groceries datas from json
     const fetchData = async () => {
-      const groceryDatas = await axios("http://localhost:3000/");
-      let list = groceryDatas.data.list;
-
-      if (!isfiltering) {
-        list = list.filter((item) => {
-          if (item.type == category) return item;
-        });
-        setFullList(list);
-      } else {
-        setFullList(list);
-      }
+      dispatch(fetchSortedList(category));
     };
     fetchData();
-  }, [category, isfiltering]);
+  }, [category]);
 
   return (
     <div className="d-flex flex-column justify-content-between">
       <div>
-        <Navbar filterResults={filterResults} setIsFiltering={setIsFiltering} />
+        <Navbar />
       </div>
       <div className="container-fluid">
         <div className="row">
@@ -63,7 +37,7 @@ function Home() {
             <List handlClick={handlClick} category={category} />
           </div>
           <div className="col">
-            <Card list={isfiltering ? filtered : fullList} />
+            <Card list={list} />
           </div>
         </div>
       </div>

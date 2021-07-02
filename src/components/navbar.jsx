@@ -1,17 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { cartSelector } from "../store/cart.selectors";
+import { fetchSearchedFList } from "../store/list.actions";
 
-function navbar({ filterResults, setIsFiltering }) {
-  const [linkIsActive, setLinkIsActive] = useState("");
+function navbar() {
+  const dispatch = useDispatch();
 
   const count = useSelector(cartSelector);
+  const [search, setSearch] = useState("");
+  const [linkIsActive, setLinkIsActive] = useState("");
 
   const handleIsActive = (e) => {
     setLinkIsActive(e.target.id);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch(fetchSearchedFList(search));
+    };
+    search && fetchData();
+  }, [search]);
 
   return (
     <nav className="navbar navbar-light ">
@@ -44,8 +54,7 @@ function navbar({ filterResults, setIsFiltering }) {
           type="search"
           aria-label="Search"
           onChange={(e) => {
-            setIsFiltering(e.target.value.length > 0);
-            filterResults(e.target.value);
+            setSearch(e.target.value);
           }}
         />
       </form>
