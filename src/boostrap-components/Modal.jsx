@@ -61,7 +61,7 @@ function BoostrapModal({ item }) {
               <button
                 type="button"
                 className="btn btn-secondary"
-                // onClick={() => (count > 0 ? dispatch(decrementCart(1)) : 0)}
+                onClick={() => dispatch(decrementCart(item))}
               >
                 -
               </button>

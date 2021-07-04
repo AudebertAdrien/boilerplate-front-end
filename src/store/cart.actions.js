@@ -5,7 +5,7 @@ export const incrementCart = (item) => ({
   payload: item,
 });
 
-export const decrementCart = (payload) => ({
+export const decrementCart = (item) => ({
   type: DECREMENT,
-  payload,
+  payload: item,
 });
