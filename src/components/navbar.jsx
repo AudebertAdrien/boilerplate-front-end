@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
-import { cartSelector } from "../store/cart.selectors";
+import { totalCartSelector } from "../store/cart.selectors";
 import { fetchSearchedFList } from "../store/list.actions";
 
 function navbar() {
   const dispatch = useDispatch();
 
-  const count = useSelector(cartSelector);
+  const totalCart = useSelector(totalCartSelector);
   const [search, setSearch] = useState("");
   const [linkIsActive, setLinkIsActive] = useState("");
 
@@ -42,9 +42,10 @@ function navbar() {
             Cart
           </Link>
         </nav>
+
         <div className="cart">
           <i className="fa fa-shopping-cart"></i>
-          <span className="badge badge-success">{count}</span>
+          <span className="badge badge-success">{totalCart}</span>
         </div>
       </div>
 

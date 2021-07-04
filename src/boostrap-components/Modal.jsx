@@ -2,14 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { Modal } from "bootstrap";
 
 import { useSelector, useDispatch } from "react-redux";
-import { cartSelector } from "../store/cart.selectors";
+// import { cartSelector } from "../store/cart.selectors";
 import { incrementCart, decrementCart } from "../store/cart.actions";
 
 function BoostrapModal({ item }) {
-  const [isClicked, setIsClicked] = useState(false);
-
   const dispatch = useDispatch();
-  const count = useSelector(cartSelector);
+  // const count = useSelector(cartSelector(item.name));
 
   // interactive bootstrap "modal" with js
   const [modal, setModal] = useState(null);
@@ -18,7 +16,6 @@ function BoostrapModal({ item }) {
   useEffect(() => {
     setModal(new Modal(exampleModal.current));
   }, []);
-
   return (
     <div>
       {/* show btn Modal */}
@@ -63,35 +60,18 @@ function BoostrapModal({ item }) {
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={() => (count > 1 ? dispatch(decrementCart(1)) : 1)}
+                // onClick={() => (count > 0 ? dispatch(decrementCart(1)) : 0)}
               >
                 -
               </button>
-              <span className="btn btn-light qty">{count}</span>
+              {/* <span className="btn btn-light qty">{count}</span> */}
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={() => dispatch(incrementCart(1))}
+                onClick={() => dispatch(incrementCart(item, 1))}
               >
                 +
               </button>
-            </div>
-
-            {/* Add to card */}
-            <div className="center">
-              <div className="buttons d-flex flex-row">
-                <div className="cart">
-                  <i className="fa fa-shopping-cart"></i>
-                </div>
-                <button
-                  className={`btn btn-success cart-button px-5 ${
-                    isClicked ? "clicked" : ""
-                  }`}
-                  onClick={() => setIsClicked(!isClicked)}
-                >
-                  <span className="dot">1</span>Add to cart{" "}
-                </button>
-              </div>
             </div>
 
             <div className="modal-footer">
@@ -101,6 +81,14 @@ function BoostrapModal({ item }) {
                 onClick={() => modal.hide()}
               >
                 Close
+              </button>
+
+              <button
+                type="button"
+                className="btn btn-success"
+                onClick={() => console.log("test")}
+              >
+                Add to cart
               </button>
             </div>
           </div>
