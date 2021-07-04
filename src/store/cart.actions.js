@@ -1,11 +1,8 @@
 import { INCREMENT, DECREMENT } from "./cart.reducer.js";
 
-export const incrementCart = (item, addOne) => ({
+export const incrementCart = (item) => ({
   type: INCREMENT,
-  payload: {
-    item,
-    count: addOne,
-  },
+  payload: item,
 });
 
 export const decrementCart = (payload) => ({

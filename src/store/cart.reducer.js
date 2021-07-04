@@ -2,39 +2,44 @@ export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
 
 const initialState = {
-  totalCart: 0,
   shoppingList: [],
 };
 
 export function cartReducer(state = initialState, action) {
   switch (action.type) {
     case INCREMENT:
-      return state;
+      const id = action.payload.id;
+      const name = action.payload.name;
+      const price = action.payload.price;
+      const count = 0;
+
+      const index = state.shoppingList.findIndex((el) => {
+        return el.id === id;
+      });
+
+      console.log(index);
+
+      if (state.shoppingList.length === 0 || index < 0) {
+        return {
+          ...state,
+          shoppingList: [
+            ...state.shoppingList,
+            { id, name, price, count: count + 1 },
+          ],
+        };
+      }
+
+      const newList = [...state.shoppingList];
+      newList[index].count += 1;
+
+      return {
+        ...state,
+        shoppingList: newList,
+      };
+
     case DECREMENT:
       return { ...state, totalCart: state.totalCart - 1 };
     default:
       return state;
   }
 }
-/* 
- const index = state.shoppingList.findIndex((el, index) => {
-        return el.item.id === action.payload.item.id ? index : index + 1;
-      });
-      console.log(index);
-      if (state.shoppingList.length === 0 || index === undefined) {
-        return {
-          ...state,
-          totalCart: state.totalCart + 1,
-          shoppingList: [...state.shoppingList, action.payload],
-        };
-      }
-
-      const newList = [...state.shoppingList];
-      newList[index].count = action.payload.count + 1;
-      return {
-        ...state,
-        totalCart: state.totalCart + 1,
-        shoppingList: newList,
-      };
-
-*/

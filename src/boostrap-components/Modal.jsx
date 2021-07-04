@@ -16,6 +16,7 @@ function BoostrapModal({ item }) {
   useEffect(() => {
     setModal(new Modal(exampleModal.current));
   }, []);
+
   return (
     <div>
       {/* show btn Modal */}
@@ -68,7 +69,7 @@ function BoostrapModal({ item }) {
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={() => dispatch(incrementCart(item, 1))}
+                onClick={() => dispatch(incrementCart(item))}
               >
                 +
               </button>
