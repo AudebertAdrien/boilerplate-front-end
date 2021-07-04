@@ -1,5 +1,4 @@
-export const INCREMENT = "INCREMENT";
-export const DECREMENT = "DECREMENT";
+import { INCREMENT, DECREMENT } from "./cart.actions.js";
 
 const initialState = {
   shoppingList: [],
@@ -8,7 +7,6 @@ const initialState = {
 export function cartReducer(state = initialState, action) {
   switch (action.type) {
     case INCREMENT: {
-      console.log("Increment");
       const count = 0;
 
       let index = state.shoppingList.findIndex((el) => {
@@ -39,8 +37,6 @@ export function cartReducer(state = initialState, action) {
       };
     }
     case DECREMENT: {
-      console.log("Decrement");
-
       let index = state.shoppingList.findIndex((el) => {
         return el.id === action.payload.id;
       });

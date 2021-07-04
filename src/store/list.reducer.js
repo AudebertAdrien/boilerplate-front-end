@@ -1,4 +1,4 @@
-export const GET_ITEMS_LIST = "GET_ITEMS_LIST";
+import { GET_ITEMS_LIST } from "./list.actions.js";
 
 const initialState = {};
 

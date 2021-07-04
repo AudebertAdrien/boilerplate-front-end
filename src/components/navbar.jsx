@@ -8,7 +8,7 @@ import { fetchSearchedFList } from "../store/list.actions";
 function navbar() {
   const dispatch = useDispatch();
 
-  const totalCart = useSelector(totalCartSelector);
+  const totalCart = "null";
   const [search, setSearch] = useState("");
   const [linkIsActive, setLinkIsActive] = useState("");
 

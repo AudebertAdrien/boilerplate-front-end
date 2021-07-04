@@ -1,2 +1,6 @@
-export const totalCartSelector = (state) => state.cart.totalCart;
-// export const cartSelector = (state) => state.cart;
+/* export const cartSelector =
+  (itemId) =>
+  ({ cart: { shoppingList } }) => {
+    return shoppingList.find((item) => item.id === itemId);
+  };
+ */

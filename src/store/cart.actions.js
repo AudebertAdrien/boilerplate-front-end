@@ -1,4 +1,5 @@
-import { INCREMENT, DECREMENT } from "./cart.reducer.js";
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
 
 export const incrementCart = (item) => ({
   type: INCREMENT,

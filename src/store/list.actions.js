@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_ITEMS_LIST } from "./list.reducer.js";
+export const GET_ITEMS_LIST = "GET_ITEMS_LIST";
 
 export const fetchSortedList = (category) => {
   return (dispatch) => {
