@@ -13,7 +13,7 @@ export function cartReducer(state = initialState, action) {
         return el.id === action.payload.id;
       });
 
-      // if state is empty or create one if it cannot find
+      // if state is empty or create one ref if it cannot find any item
       if (state.shoppingList.length === 0 || index < 0) {
         return {
           ...state,
@@ -52,12 +52,19 @@ export function cartReducer(state = initialState, action) {
         return state;
       }
 
-      const newList = [...state.shoppingList];
-      newList[index].count > 0 ? (newList[index].count -= 1) : 0;
+      let newList = state.shoppingList.map((item) => {
+        if (item.id !== action.payload.id) {
+          return item;
+        }
+        return {
+          ...item,
+          count: item.count > 0 ? item.count - 1 : 0,
+        };
+      });
 
       return {
         ...state,
-        shoppingList: newList,
+        shoppingList: [...newList],
       };
     }
     default:
