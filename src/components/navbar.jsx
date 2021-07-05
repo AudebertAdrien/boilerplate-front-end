@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
-import { totalCartSelector } from "../store/cart.selectors";
+import { useDispatch } from "react-redux";
 import { fetchSearchedFList } from "../store/list.actions";
 
 function navbar() {
@@ -45,7 +44,7 @@ function navbar() {
 
         <div className="cart">
           <i className="fa fa-shopping-cart"></i>
-          <span className="badge badge-success">{totalCart}</span>
+          <span className="badge badge-success">null</span>
         </div>
       </div>
 

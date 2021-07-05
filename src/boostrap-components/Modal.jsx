@@ -9,8 +9,8 @@ import { isEmpty } from "../utils/utils";
 
 function BoostrapModal({ item }) {
   const dispatch = useDispatch();
-  // const numberOfItem = useSelector(cartSelector(item.id));
-
+  const numberOfItem = useSelector(cartSelector(item.id));
+  console.log(numberOfItem);
   // interactive bootstrap "modal" with js
   const [modal, setModal] = useState(null);
   const exampleModal = useRef();
@@ -67,7 +67,7 @@ function BoostrapModal({ item }) {
                 -
               </button>
               <span className="btn btn-light qty">
-                {/* {!isEmpty(numberOfItem.count) && numberOfItem.count} */}
+                {!isEmpty(numberOfItem) ? numberOfItem.count : 0}
               </span>
               <button
                 type="button"
