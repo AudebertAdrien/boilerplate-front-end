@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
-import { fetchSearchedFList } from "../store/list.actions";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchSearchedFList } from "../modules/list/list.actions";
+import { totalCartSelector } from "../modules/cart/cart.selectors";
 
 function navbar() {
   const dispatch = useDispatch();
 
-  const totalCart = "null";
-  const [search, setSearch] = useState("");
-  const [linkIsActive, setLinkIsActive] = useState("");
+  const totalCart = useSelector(totalCartSelector);
 
+  const [search, setSearch] = useState("");
+  const [linkIsActive, setLinkIsActive] = useState("home");
   const handleIsActive = (e) => {
     setLinkIsActive(e.target.id);
   };
@@ -28,6 +29,7 @@ function navbar() {
         <a className="navbar-brand">Navbar</a>
         <nav className="nav">
           <Link
+            id="home"
             className={`nav-link ${linkIsActive === "home" ? "active" : ""}`}
             to="/"
             onClick={(e) => handleIsActive(e)}
@@ -35,8 +37,10 @@ function navbar() {
             Home
           </Link>
           <Link
+            id="cart"
             className={`nav-link ${linkIsActive === "cart" ? "active" : ""}`}
             to="/cart"
+            onClick={(e) => handleIsActive(e)}
           >
             Cart
           </Link>
@@ -44,7 +48,7 @@ function navbar() {
 
         <div className="cart">
           <i className="fa fa-shopping-cart"></i>
-          <span className="badge badge-success">null</span>
+          <span className="badge badge-success">{totalCart}</span>
         </div>
       </div>
 

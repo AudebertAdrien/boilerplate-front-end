@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import Card from "../components/card";
-import List from "../components/list";
+import Card from "../common-components/Card";
+import List from "../common-components/List";
 
 import { useSelector, useDispatch } from "react-redux";
-import { getList } from "../store/list.selectors";
-import { fetchSortedList } from "../store/list.actions";
+import { getList } from "../modules/list/list.selectors";
+import { fetchSortedList } from "../modules/list/list.actions";
 
 function Home() {
   const dispatch = useDispatch();
@@ -19,6 +17,8 @@ function Home() {
     setCategory(i);
   }
 
+  // It's better not to fetch every time the database when we change categories
+  // but it's not the purpose of the practice of redux
   useEffect(() => {
     const fetchData = async () => {
       dispatch(fetchSortedList(category));
@@ -27,22 +27,14 @@ function Home() {
   }, [category]);
 
   return (
-    <div className="d-flex flex-column justify-content-between">
-      <div>
-        <Navbar />
-      </div>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-3">
-            <List handlClick={handlClick} category={category} />
-          </div>
-          <div className="col">
-            <Card list={list} />
-          </div>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-3">
+          <List handlClick={handlClick} category={category} />
         </div>
-      </div>
-      <div>
-        <Footer />
+        <div className="col">
+          <Card list={list} />
+        </div>
       </div>
     </div>
   );

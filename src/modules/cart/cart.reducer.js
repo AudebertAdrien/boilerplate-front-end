@@ -1,7 +1,26 @@
 import { INCREMENT, DECREMENT } from "./cart.actions.js";
 
 const initialState = {
-  shoppingList: [],
+  shoppingList: [
+    {
+      id: 111,
+      name: "Apple",
+      type: "fruit",
+      image: "https://via.placeholder.com/150/92c952",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      price: 125,
+      count: 2,
+    },
+    {
+      id: 222,
+      name: "Apple",
+      type: "fruit",
+      image: "https://via.placeholder.com/150/92c952",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      price: 35,
+      count: 3,
+    },
+  ],
 };
 
 export function cartReducer(state = initialState, action) {

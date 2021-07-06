@@ -1,4 +1,4 @@
-function list({ handlClick, category }) {
+function List({ handlClick, category }) {
   const listOfType = ["vegetable", "drink", "fruit", "grocery"];
 
   return (
@@ -20,4 +20,4 @@ function list({ handlClick, category }) {
   );
 }
 
-export default list;
+export default List;
