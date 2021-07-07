@@ -1,4 +1,4 @@
-function List({ handlClick, category }) {
+function Categories({ handlClick, category }) {
   const listOfType = ["vegetable", "drink", "fruit", "grocery"];
 
   return (
@@ -8,7 +8,7 @@ function List({ handlClick, category }) {
           return (
             <li
               key={link}
-              className={category == link ? "active" : ""}
+              className={`categories ${category == link ? "active" : ""}`}
               onClick={() => handlClick(link)}
             >
               {link}
@@ -20,4 +20,4 @@ function List({ handlClick, category }) {
   );
 }
 
-export default List;
+export default Categories;

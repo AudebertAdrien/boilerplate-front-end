@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Card from "../common-components/Card";
-import List from "../common-components/List";
+import Categories from "../common-components/Categories";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getList } from "../modules/list/list.selectors";
@@ -18,7 +18,7 @@ function Home() {
   }
 
   // It's better not to fetch every time the database when we change categories
-  // but it's not the purpose of the practice of redux
+  // but it's not the purpose of my practice of redux
   useEffect(() => {
     const fetchData = async () => {
       dispatch(fetchSortedList(category));
@@ -30,7 +30,7 @@ function Home() {
     <div className="container-fluid">
       <div className="row">
         <div className="col-3">
-          <List handlClick={handlClick} category={category} />
+          <Categories handlClick={handlClick} category={category} />
         </div>
         <div className="col">
           <Card list={list} />

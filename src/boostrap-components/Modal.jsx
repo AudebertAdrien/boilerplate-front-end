@@ -22,12 +22,12 @@ function BoostrapModal({ item }) {
     <div>
       {/* show btn Modal */}
       <button
-        className="btn btn-primary"
+        className="btn btn-secondary"
         data-toggle="modal"
         data-target={`#${item.name}`}
         onClick={() => modal.show()}
       >
-        Go somewhere
+        Detail
       </button>
 
       {/* Modal */}
@@ -54,45 +54,46 @@ function BoostrapModal({ item }) {
             </div>
             <div className="modal-body">
               <div>{item.description}</div>
-              <div>&euro;{item.price}</div>
+            </div>
+
+            <div className="modal-body">
+              <div className="price">&euro;{item.price}</div>
             </div>
 
             {/* Minus / Plus button */}
-            <div className="btn-group" role="groupe" aria-label="Basic example">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={() => dispatch(decrementCart(item))}
+            <div className="minus_plus ">
+              <div
+                className="btn-group d-grid mx-auto d-flex"
+                role="groupe"
+                aria-label="Basic example"
               >
-                -
-              </button>
-              <span className="btn btn-light qty">
-                {!isEmpty(numberOfItem) ? numberOfItem.count : 0}
-              </span>
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={() => dispatch(incrementCart(item))}
-              >
-                +
-              </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => dispatch(decrementCart(item))}
+                >
+                  -
+                </button>
+                <span className="btn btn-light">
+                  {!isEmpty(numberOfItem) ? numberOfItem.count : 0}
+                </span>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => dispatch(incrementCart(item))}
+                >
+                  +
+                </button>
+              </div>
             </div>
 
-            <div className="modal-footer">
+            <div className="m-2 d-flex ms-auto">
               <button
                 type="button"
                 className="btn btn-danger"
                 onClick={() => modal.hide()}
               >
                 Close
-              </button>
-
-              <button
-                type="button"
-                className="btn btn-success"
-                onClick={() => console.log("test")}
-              >
-                Add to cart
               </button>
             </div>
           </div>

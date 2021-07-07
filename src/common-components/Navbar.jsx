@@ -24,9 +24,9 @@ function navbar() {
   }, [search]);
 
   return (
-    <nav className="navbar navbar-light ">
+    <nav className="navbar navbar-light px-3">
       <div className="d-flex">
-        <a className="navbar-brand">Navbar</a>
+        <a className="navbar-brand">Brand</a>
         <nav className="nav">
           <Link
             id="home"
@@ -45,23 +45,24 @@ function navbar() {
             Cart
           </Link>
         </nav>
-
+      </div>
+      <div className="d-flex">
         <div className="cart">
           <i className="fa fa-shopping-cart"></i>
-          <span className="badge badge-success">{totalCart}</span>
+          <span className="badge">{totalCart}</span>
         </div>
+        <form className="d-flex">
+          <input
+            className="form-control me-2"
+            type="search"
+            aria-label="Search"
+            placeholder="Search item"
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+        </form>
       </div>
-
-      <form className="d-flex">
-        <input
-          className="form-control me-2"
-          type="search"
-          aria-label="Search"
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
-        />
-      </form>
     </nav>
   );
 }

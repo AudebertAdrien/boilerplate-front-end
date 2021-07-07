@@ -1,54 +1,46 @@
-function OrderRecap() {
+function OrderRecap({ shoppingList }) {
   return (
-    <div className="col-md-4">
+    <div className="col-md-4 text-end">
       <div className="bg-pay p-3">
         <span className="font-weight-bold">Order Recap</span>
-        <div className="d-flex justify-content-between mt-2">
-          <span className="fw-500">contracted Price</span>
-          <span>$186.86</span>
-        </div>
-        <div className="d-flex justify-content-between mt-2">
-          <span className="fw-500">Amount Deductible</span>
-          <span>$0.0</span>
-        </div>
-        <div className="d-flex justify-content-between mt-2">
-          <span className="fw-500">Coinsurance(0%)</span>
-          <span>+ $0.0</span>
-        </div>
-        <div className="d-flex justify-content-between mt-2">
-          <span className="fw-500">Copayment </span> <span>+ 40.00</span>
-        </div>
+
+        <hr />
+        {shoppingList.map((item) => {
+          return (
+            <div key={item.id}>
+              <div className="mt-1">
+                <h6>{item.name}</h6>
+                <div>
+                  <h6 className="text-success font-weight-bold">{`Cost per unit  : €${item.price}`}</h6>
+                </div>
+                <div>
+                  <h6 className="text-success font-weight-bold">{`${
+                    item.count
+                  } x : €${item.price * item.count}`}</h6>
+                </div>
+              </div>
+            </div>
+          );
+        })}
         <hr />
         <div className="d-flex justify-content-between mt-2">
-          <span className="lh-16 fw-500">
-            Total Deductible,
-            <br /> Coinsurance and copay
+          <span className="fw-500">Tax</span>
+          <span> + 10.00€</span>
+        </div>
+        <div className="d-flex justify-content-between mt-2">
+          <span className="fw-500">Total</span>
+          <span className="text-success">
+            {shoppingList.reduce((acc, item) => {
+              {
+                return acc + item.price * item.count;
+              }
+            }, 10)}
+            €
           </span>
-          <span>$40.00</span>
-        </div>
-        <div className="d-flex justify-content-between mt-2">
-          <span className="lh-16 fw-500">
-            Maximum out-of-pocket <br /> on insurance policy
-          </span>
-          <span>$40.00</span>
-        </div>
-        <hr />
-        <div className="d-flex justify-content-between mt-2">
-          <span className="fw-500">Insurance Responsibility </span>
-          <span>$71.76</span>
-        </div>
-        <div className="d-flex justify-content-between mt-2">
-          <span className="fw-500">Patient Balance </span>
-          <span>$13.24</span>
-        </div>
-        <hr />
-        <div className="d-flex justify-content-between mt-2">
-          <span className="fw-500">Total </span>
-          <span className="text-success">$85.00</span>
         </div>
       </div>
       <div className="buttons">
-        <button className="btn btn-success btn-block">
+        <button className="btn btn-success btn-block w-auto">
           Proceed to payment
         </button>
       </div>

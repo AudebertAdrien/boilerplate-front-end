@@ -1,0 +1,48 @@
+$primary: #c8f5fc;
+$secondary: #ca786d;
+$sucess: #609b4f;
+
+@import "~bootstrap/scss/bootstrap.scss";
+@import "./_badge.scss";
+@import "./_checkout.scss";
+
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
+}
+
+.card {
+  width: 15em;
+}
+
+.navbar {
+  background-color: $primary;
+}
+
+.footer {
+  background-color: $primary;
+}
+
+.nav-link {
+  color: #000;
+  &.active {
+    color: $secondary;
+    font-weight: 700;
+  }
+}
+.categories.active {
+  color: $secondary;
+  font-weight: 700;
+}
+
+.minus_plus {
+  width: 50%;
+  margin: auto;
+}
+
+.price {
+  color: $success;
+  font-weight: bold;
+}
