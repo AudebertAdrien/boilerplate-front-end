@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
   mode: "production",
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
+    /* new MiniCssExtractPlugin(), */
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src/index.html"),
       filename: "index.html",
@@ -33,19 +33,13 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: { publicPath: "" },
+            loader: "style-loader",
           },
           {
             loader: "css-loader",
           },
           {
             loader: "postcss-loader",
-            options: {
-              plugins: function () {
-                return [require("autoprefixer")];
-              },
-            },
           },
           {
             loader: "sass-loader",
@@ -55,3 +49,12 @@ module.exports = {
     ],
   },
 };
+/*   {
+            loader: MiniCssExtractPlugin.loader,
+            options: { publicPath: "" },
+          }, */
+/*   options: {
+              plugins: function () {
+                return [require("autoprefixer")];
+              },
+            }, */
