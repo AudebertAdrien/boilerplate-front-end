@@ -10,7 +10,7 @@ const initialState = {
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing fugit vel magni ipsum maiores, soluta expedita debitis.",
       price: 125,
-      count: 2,
+      count: 1,
     },
     {
       id: 222,
@@ -20,7 +20,7 @@ const initialState = {
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing fugit vel magni ipsum maiores, soluta expedita debitis.",
       price: 35,
-      count: 3,
+      count: 1,
     },
   ],
 };

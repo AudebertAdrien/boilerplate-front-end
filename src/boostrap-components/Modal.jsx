@@ -2,14 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import { Modal } from "bootstrap";
 
 import { useSelector, useDispatch } from "react-redux";
-import { cartSelector } from "../modules/cart/cart.selectors";
+import { itemCountSelector } from "../modules/cart/cart.selectors";
 import { incrementCart, decrementCart } from "../modules/cart/cart.actions";
 
 import { isEmpty } from "../utils/utils";
 
 function BoostrapModal({ item }) {
   const dispatch = useDispatch();
-  const numberOfItem = useSelector(cartSelector(item.id));
+  const numberOfItem = useSelector(itemCountSelector(item.id));
 
   // interactive bootstrap "modal" with js
   const [modal, setModal] = useState(null);

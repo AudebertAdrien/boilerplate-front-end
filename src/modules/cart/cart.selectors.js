@@ -1,4 +1,4 @@
-export const cartSelector =
+export const itemCountSelector =
   (itemId) =>
   ({ cart: { shoppingList } }) => {
     return shoppingList.find((item) => item.id === itemId);

@@ -1,4 +1,11 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchPaymentIntent } from "../cart.actions";
+
 function OrderRecap({ shoppingList }) {
+  const dispatch = useDispatch();
+  let amount = 0;
+
   return (
     <div className="col-md-4 text-end">
       <div className="bg-pay p-3">
@@ -30,17 +37,22 @@ function OrderRecap({ shoppingList }) {
         <div className="d-flex justify-content-between mt-2">
           <span className="fw-500">Total</span>
           <span className="text-success">
-            {shoppingList.reduce((acc, item) => {
-              {
-                return acc + item.price * item.count;
-              }
-            }, 10)}
+            {
+              (amount = shoppingList.reduce((acc, item) => {
+                {
+                  return acc + item.price * item.count;
+                }
+              }, 10))
+            }
             €
           </span>
         </div>
       </div>
       <div className="buttons">
-        <button className="btn btn-success btn-block w-auto">
+        <button
+          className="btn btn-success btn-block w-auto"
+          onClick={() => dispatch(fetchPaymentIntent(amount))}
+        >
           Proceed to payment
         </button>
       </div>

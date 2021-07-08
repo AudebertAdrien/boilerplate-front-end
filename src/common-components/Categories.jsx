@@ -2,7 +2,7 @@ function Categories({ handlClick, category }) {
   const listOfType = ["vegetable", "drink", "fruit", "grocery"];
 
   return (
-    <div className="mt-4">
+    <div className="categories mt-4">
       <ul>
         {listOfType.map((link) => {
           return (
