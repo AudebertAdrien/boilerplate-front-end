@@ -5,7 +5,7 @@ export const GET_ITEMS_LIST = "GET_ITEMS_LIST";
 export const fetchSortedList = (category) => {
   return (dispatch) => {
     return axios
-      .get("http://localhost:3000/")
+      .get(WEBPACK_BASE_URL)
       .then((res) => {
         let list = res.data.list;
         list = list.filter((item) => {
@@ -20,7 +20,7 @@ export const fetchSortedList = (category) => {
 export const fetchSearchedFList = (search) => {
   return (dispatch) => {
     return axios
-      .get("http://localhost:3000/")
+      .get(WEBPACK_BASE_URL)
       .then((res) => {
         let list = res.data.list;
         let filteredList = list.filter((item) => {

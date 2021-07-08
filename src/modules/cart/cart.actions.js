@@ -16,7 +16,7 @@ export const decrementCart = (item) => ({
 export const fetchPaymentIntent = (amount) => {
   return (dispatch) => {
     return axios
-      .post("http://localhost:3000/cart", { amount })
+      .post(WEBPACK_BASE_URL, { amount })
       .then((res) => {
         if (res.status === 200) {
           console.log(res);
