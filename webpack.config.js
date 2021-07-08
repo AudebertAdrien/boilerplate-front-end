@@ -35,9 +35,11 @@ const commonConfig = {
 
 module.exports = () => {
   if (process.env.REACT_APP_PRODUCTION) {
+    console.log(process.env.REACT_APP_PRODUCTION);
     return merge(commonConfig, productionConfig);
   }
   if (process.env.REACT_APP_DEVELOPMENT) {
+    console.log(process.env.REACT_APP_DEVELOPMENT);
     return merge(commonConfig, developmentConfig);
   }
 };
