@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
+export const CLEAR_CART = "CLEAR_CART";
 
 export const incrementCart = (item) => ({
   type: INCREMENT,
@@ -16,10 +17,12 @@ export const decrementCart = (item) => ({
 export const fetchPaymentIntent = (amount) => {
   return (dispatch) => {
     return axios
-      .post(WEBPACK_BASE_URL, { amount })
+      .post(`${WEBPACK_BASE_URL}/cart`, { amount })
       .then((res) => {
+        console.log(res);
         if (res.status === 200) {
           console.log(res);
+          dispatch({ type: CLEAR_CART });
         }
       })
       .catch((err) => console.log(err));

@@ -1,12 +1,11 @@
-import { INCREMENT, DECREMENT } from "./cart.actions.js";
+import { INCREMENT, DECREMENT, CLEAR_CART } from "./cart.actions.js";
 
 const initialState = {
   shoppingList: [
     {
       id: 111,
-      name: "Apricot",
-      type: "fruit",
-      image: "https://via.placeholder.com/150/92c952",
+      name: "coco",
+      type: "cat",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing fugit vel magni ipsum maiores, soluta expedita debitis.",
       price: 125,
@@ -14,9 +13,8 @@ const initialState = {
     },
     {
       id: 222,
-      name: "Pineapple",
-      type: "fruit",
-      image: "https://via.placeholder.com/150/92c952",
+      name: "titi",
+      type: "dog",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing fugit vel magni ipsum maiores, soluta expedita debitis.",
       price: 35,
@@ -87,6 +85,12 @@ export function cartReducer(state = initialState, action) {
       return {
         ...state,
         shoppingList: [...newList],
+      };
+    }
+    case CLEAR_CART: {
+      return {
+        ...state,
+        shoppingList: [],
       };
     }
     default:

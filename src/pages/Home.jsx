@@ -10,7 +10,7 @@ import { fetchSortedList } from "../modules/list/list.actions";
 function Home() {
   const dispatch = useDispatch();
   const list = useSelector(getList);
-  const [category, setCategory] = useState("vegetable");
+  const [category, setCategory] = useState("cat");
 
   // Set list and define active list
   function handlClick(i) {
@@ -33,7 +33,7 @@ function Home() {
           <Categories handlClick={handlClick} category={category} />
         </div>
         <div className="col">
-          <Card list={list} />
+          <Card list={list} category={category} />
         </div>
       </div>
     </div>

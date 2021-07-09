@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchSearchedFList } from "../modules/list/list.actions";
 import { totalCartSelector } from "../modules/cart/cart.selectors";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
 function navbar() {
   const dispatch = useDispatch();
 
@@ -46,11 +49,8 @@ function navbar() {
           </Link>
         </nav>
       </div>
+
       <div className="d-flex">
-        <div className="cart">
-          <i className="fa fa-shopping-cart"></i>
-          <span className="badge">{totalCart}</span>
-        </div>
         <form className="d-flex">
           <input
             className="form-control me-2"
@@ -62,6 +62,14 @@ function navbar() {
             }}
           />
         </form>
+        <Link className="linkCart" to="/cart">
+          <div className="buttons d-flex">
+            <div className="cart">
+              <FontAwesomeIcon icon={faShoppingCart} />
+              <span className="badge">{totalCart}</span>
+            </div>
+          </div>
+        </Link>
       </div>
     </nav>
   );
