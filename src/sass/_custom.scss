@@ -3,9 +3,9 @@ $secondary: #ca786d;
 $sucess: #609b4f;
 
 @import "~bootstrap/scss/bootstrap.scss";
-@import "./_badge.scss";
 @import "./_checkout.scss";
 @import "./_categories";
+@import "./_badge.scss";
 
 html,
 body,

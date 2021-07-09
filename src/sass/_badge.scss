@@ -1,11 +1,13 @@
 // Badge on cart
+.navbar .cart {
+  position: relative;
+  width: 20%;
+  background-color: red;
+}
+
 .badge {
   position: absolute;
   transform: translate(80%, -80%);
   background: $secondary;
   border-radius: 50%;
-}
-
-.navbar .cart {
-  position: relative;
 }
