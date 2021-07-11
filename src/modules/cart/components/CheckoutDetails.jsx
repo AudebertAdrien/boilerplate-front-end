@@ -1,5 +1,4 @@
 function checkoutDetails({ item }) {
-  console.log(item.image);
   return (
     <div className="d-flex flex-column mt-1 checkout_detail_item">
       <div className="row justify-content-between">
