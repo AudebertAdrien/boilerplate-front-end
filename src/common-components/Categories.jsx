@@ -1,5 +1,11 @@
 function Categories({ handlClick, category }) {
-  const listOfType = ["cat", "dog", "bird", "bear"];
+  const listOfType = [
+    "Photo Cameras",
+    "Action Camera",
+    "Video Cameras",
+    "Microphone",
+    "Lens",
+  ];
 
   return (
     <div className="categories mt-4">

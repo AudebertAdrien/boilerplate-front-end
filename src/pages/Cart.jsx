@@ -7,7 +7,7 @@ import OrderRecap from "../modules/cart/components/OrderRecap";
 
 export default function Cart() {
   const shoppingList = useSelector(cartShoppingListSelector);
-  console.log(shoppingList);
+
   return (
     <div className="container my-5">
       <div className="d-flex justify-content-between align-items-center mb-5">

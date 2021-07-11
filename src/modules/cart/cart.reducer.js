@@ -3,21 +3,25 @@ import { INCREMENT, DECREMENT, CLEAR_CART } from "./cart.actions.js";
 const initialState = {
   shoppingList: [
     {
-      id: 111,
-      name: "coco",
-      type: "cat",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing fugit vel magni ipsum maiores, soluta expedita debitis.",
-      price: 125,
-      count: 1,
-    },
-    {
-      id: 222,
-      name: "titi",
-      type: "dog",
+      id: 1,
+      name: "rocket",
+      type: "Photo Cameras",
+      image:
+        "https://my-e-commerce-bucket.s3.eu-west-1.amazonaws.com/Pcamera1.jpg",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing fugit vel magni ipsum maiores, soluta expedita debitis.",
       price: 35,
+      count: 1,
+    },
+    {
+      id: 8,
+      name: "bigA$$",
+      type: "Lens",
+      image:
+        "https://my-e-commerce-bucket.s3.eu-west-1.amazonaws.com/lens1.jpg",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing fugit vel magni ipsum maiores, soluta expedita debitis.",
+      price: 50,
       count: 1,
     },
   ],
@@ -39,10 +43,7 @@ export function cartReducer(state = initialState, action) {
           shoppingList: [
             ...state.shoppingList,
             {
-              id: action.payload.id,
-              name: action.payload.name,
-              price: action.payload.price,
-              description: action.payload.description,
+              ...action.payload,
               count: count + 1,
             },
           ],

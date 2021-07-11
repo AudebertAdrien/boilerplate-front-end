@@ -16,6 +16,10 @@ body,
 
 .card {
   width: 15em;
+  img {
+    max-height: 10em;
+    object-fit: cover;
+  }
 }
 
 .navbar {

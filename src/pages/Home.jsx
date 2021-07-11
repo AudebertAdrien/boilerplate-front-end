@@ -10,7 +10,7 @@ import { fetchSortedList } from "../modules/list/list.actions";
 function Home() {
   const dispatch = useDispatch();
   const list = useSelector(getList);
-  const [category, setCategory] = useState("cat");
+  const [category, setCategory] = useState("Photo Cameras");
 
   // Set list and define active list
   function handlClick(i) {
