@@ -13,6 +13,9 @@ function card({ list }) {
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.type}</p>
+                <hr />
+                <p className="card-text">{item.description}</p>
+                <hr />
                 <BoostrapModal item={item} />
               </div>
             </div>
