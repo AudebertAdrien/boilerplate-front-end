@@ -19,9 +19,7 @@ export const fetchPaymentIntent = (amount) => {
     return axios
       .post(`${WEBPACK_BASE_URL}/cart`, { amount })
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
-          console.log(res);
           dispatch({ type: CLEAR_CART });
         }
       })

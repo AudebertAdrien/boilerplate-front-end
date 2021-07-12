@@ -27,7 +27,7 @@ function navbar() {
   }, [search]);
 
   return (
-    <nav className="navbar navbar-light px-3">
+    <nav className="navbar navbar-light px-4">
       <div className="d-flex">
         <a className="navbar-brand">Brand</a>
         <nav className="nav">

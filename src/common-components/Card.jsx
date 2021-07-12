@@ -1,12 +1,16 @@
 import BoostrapModal from "../boostrap-components/Modal";
 
 function card({ list }) {
-  console.log(list);
+  function maxCharacter(description) {
+    if (description.length > 30) {
+      return `${description.split("", 30).join("")}...`;
+    }
+    return description;
+  }
   return (
     <div className="d-flex flex-wrap justify-content-center">
       {list &&
         list.map((item) => {
-          console.log(item.image);
           return (
             <div className="card m-4" key={item.id}>
               <img src={item.image} className="card-img-top" alt="..." />
@@ -14,7 +18,7 @@ function card({ list }) {
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">{item.type}</p>
                 <hr />
-                <p className="card-text">{item.description}</p>
+                <p className="card-text">{maxCharacter(item.description)}</p>
                 <hr />
                 <BoostrapModal item={item} />
               </div>
