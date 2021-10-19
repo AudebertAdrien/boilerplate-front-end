@@ -1,17 +1,10 @@
-# e-commerce Front end
+# BoilerPlate
 
 ---
 
-- Production link  
-  https://my-e-commerce-client.herokuapp.com/
+- Production link
 
 ## Description
-
-It is a MERN (mongoDB, Express, React, Node) in RESTfull API
-
-- Github link  
-  https://github.com/AudebertAdrien/e-commerce-client
-  https://github.com/AudebertAdrien/e-commerce-server
 
 ### Heroku
 

@@ -2,10 +2,7 @@ $primary: #c8f5fc;
 $secondary: #ca786d;
 $sucess: #609b4f;
 
-@import "~bootstrap/scss/bootstrap.scss";
-@import "./_checkout.scss";
-@import "./_categories";
-@import "./_badge.scss";
+@import '~bootstrap/scss/bootstrap.scss';
 
 html,
 body,
@@ -14,41 +11,6 @@ body,
   height: 100%;
 }
 
-.card {
-  width: 15em;
-  img {
-    max-height: 10em;
-    object-fit: cover;
-  }
-}
-
-.navbar {
-  background-color: $primary;
-  min-height: 4.5em;
-}
-
-.footer {
-  background-color: $primary;
-}
-
-.nav-link {
-  color: #000;
-  &.active {
-    color: $secondary;
-    font-weight: 700;
-  }
-}
-.categories.active {
-  color: $secondary;
-  font-weight: 700;
-}
-
-.minus_plus {
-  width: 50%;
-  margin: auto;
-}
-
-.price {
-  color: $success;
-  font-weight: bold;
+h1 {
+  color: $sucess;
 }
