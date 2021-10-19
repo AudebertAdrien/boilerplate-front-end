@@ -1,16 +1,6 @@
-$primary: #c8f5fc;
-$secondary: #ca786d;
-$sucess: #609b4f;
-
-@import '~bootstrap/scss/bootstrap.scss';
-
 html,
 body,
 #root,
 #root > div {
   height: 100%;
-}
-
-h1 {
-  color: $sucess;
 }
