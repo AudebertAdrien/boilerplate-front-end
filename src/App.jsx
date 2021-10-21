@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
 
@@ -9,12 +9,12 @@ import Home from './components/Home';
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <Router>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='*' render={() => <h1>404: page not found</h1>} />
+          <Route exact path="/" component={Home} />
+          <Route path="*" render={() => <h1>404: page not found</h1>} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     </Provider>
   );
 }
