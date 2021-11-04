@@ -4,3 +4,25 @@ body,
 #root > div {
   height: 100%;
 }
+
+.Facebook {
+  background-color: rgba(255, 99, 132, 0.2);
+}
+.GoogleAds {
+  background-color: rgba(54, 162, 235, 0.2);
+}
+.Applovin {
+  background-color: rgba(255, 206, 86, 0.2);
+}
+.total {
+  background-color: rgba(75, 192, 192, 0.2);
+}
+
+[scope='col'] {
+  max-width: 9rem;
+  word-wrap: break-word;
+}
+
+.table {
+  margin: 5rem 0;
+}

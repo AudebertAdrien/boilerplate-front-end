@@ -1,10 +1,22 @@
-import CounterComponent from './counter/Counter';
+import Table from './Table';
+import Spend from './Spend';
+import Revenue from './Revenue';
 
 function Home() {
   return (
-    <div>
-      <CounterComponent />
-    </div>
+    <>
+      <Table />
+      <div className="container">
+        <div className="row">
+          <div className="col-sm mb-5">
+            <Spend />
+          </div>
+          <div className="col-sm">
+            <Revenue />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
